@@ -1,0 +1,9 @@
+apply plugin:'java'
+
+group = 'com.fp4j'
+
+repositories {
+  mavenCentral()
+}
+
+

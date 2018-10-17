@@ -1,0 +1,5 @@
+rootProject.name = 'functional-programming-with-java'
+
+include 'functional-programming-with-java-m1'
+include 'functional-programming-with-java-m2'
+
