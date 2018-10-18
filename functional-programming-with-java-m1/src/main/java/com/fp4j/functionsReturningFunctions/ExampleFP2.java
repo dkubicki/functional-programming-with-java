@@ -22,7 +22,7 @@ public class ExampleFP2 {
                         sales,
                         fixedCosts,
                         incrementalCosts,
-                        (s, fc, ic) -> s - ic - fc);;
+                        (s, fc, ic) -> s - ic - fc);
 
         Double totalProfit = 0.0;
         for(int time = 1; time <= 12; time ++) {

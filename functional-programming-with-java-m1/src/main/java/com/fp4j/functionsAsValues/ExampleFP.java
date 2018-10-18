@@ -8,7 +8,7 @@ public class ExampleFP {
 
     public static void main(final String[] args) {
 
-        final FunctionOverTime sales =
+        final  FunctionOverTime sales =
                 (time) -> EXPECTED_SALES_JAN_TO_DEC[time - 1];
 
         final FunctionOverTime fixedCosts =
