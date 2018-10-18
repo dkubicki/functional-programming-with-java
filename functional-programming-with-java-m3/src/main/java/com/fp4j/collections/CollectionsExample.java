@@ -3,9 +3,12 @@ package com.fp4j.collections;
 import java.util.Arrays;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
-public class ExampleConvertedFromGuava {
+public class CollectionsExample {
 
+    public static final Predicate<String> NON_EMPTY = s -> !s.isEmpty();
     final static String[] food = new String[]{
             "Crunchy carrots",
             "Golden-hued bananas",
@@ -22,10 +25,17 @@ public class ExampleConvertedFromGuava {
                     .orElse("");
 
     private static String summarize(String[] descriptions) {
-        return Arrays.stream(descriptions)
-                .peek(s -> System.out.println("About "))
-                .filter(s -> !s.isEmpty()) // skip some
-                .map(lastWord) // transform
+        System.out.println("---Setting up the stream");
+        Stream<String> lastWords = Arrays.stream(descriptions)
+                .peek(s -> System.out.println("About to filter: " + s))
+                .filter(NON_EMPTY)
+                .limit(3)
+                .peek(s -> System.out.println("About to map: " + s))
+                .map(lastWord)
+                .peek(s -> System.out.println("About to reduce: " + s));
+
+        System.out.println("---Reducing");
+        return lastWords
                 .reduce(joinOn(" & "))
                 .orElse("");
     }
